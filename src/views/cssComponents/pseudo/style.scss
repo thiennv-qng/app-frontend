@@ -1,0 +1,140 @@
+.rc-input {
+  border-radius: 8px;
+  padding: 4px 12px;
+  background-color: #bad1ef;
+  color: red;
+}
+
+.pseudo-autofill {
+  color: yellow;
+  &:autofill,
+  &:-webkit-autofill {
+    border: 1px solid #bad1ef;
+    -webkit-text-fill-color: rgb(0, 87, 128);
+    -webkit-box-shadow: 0 0 0px 1000px #d9efba inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.pseudo-label {
+  cursor: pointer;
+  user-select: none;
+  &:has(input:checked) {
+    color: red;
+  }
+}
+
+.pseudo-default {
+  &:has(input:default) {
+    color: red;
+  }
+}
+
+.rc-label {
+  display: flex;
+  flex-flow: row;
+  gap: 8px;
+}
+
+.pseudo-disabled {
+  &:has(input:disabled) {
+    color: red;
+  }
+}
+
+.pseudo-empty-container {
+  .pseudo-empty {
+    &:empty {
+      width: 250px;
+      height: 25px;
+      border-radius: 8px;
+      background-color: #d9efba;
+    }
+  }
+  &:has(.pseudo-empty:empty) .here {
+    width: 200px;
+    height: 25px;
+    border-radius: 8px;
+    background-color: #efd2ba;
+    padding: 0 12px;
+  }
+}
+
+.pseudo-enabled {
+  color: #000;
+  &:enabled {
+    background: red;
+  }
+}
+.pseudo-active-container {
+  .pseudo-active {
+    &:active {
+      background: blue;
+    }
+  }
+  &:has(.pseudo-active:active) span {
+    color: green;
+    transform: translate(2px, 2px);
+  }
+}
+
+.pseudo-fullscreen {
+  background: green;
+  &:fullscreen {
+    background: red;
+  }
+}
+
+.pseudo-in-range {
+  &:in-range {
+    color: #fff;
+    background: green;
+  }
+}
+
+.pseudo-of-type-container {
+  h2 {
+    &:first-of-type {
+      color: red;
+    }
+    &:last-of-type {
+      color: blue;
+    }
+  }
+  h3 {
+    &:first-of-type {
+      color: green;
+    }
+    &:last-of-type {
+      color: yellow;
+    }
+  }
+
+  // xn + y, x: offset, y: start
+  .child {
+    .square:nth-of-type(2n + 1) {
+      background: red;
+    }
+  }
+}
+
+.pseudo-where-is-container {
+  :is(.pseudo-where) {
+    :is(p) {
+      :is(h1) {
+        color: red;
+      }
+    }
+    :is(.div-1, ul) {
+      h1 {
+        color: green;
+      }
+    }
+  }
+}
+
+.pseudo-fw-label {
+  &:focus-within {
+    font-weight: 700;
+  }
+}

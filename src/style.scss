@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hover {
+  transition: all 0.3s linear;
+  transform-origin: 0 0;
+  &:hover {
+    transform-origin: 30px 0;
+  }
+}
